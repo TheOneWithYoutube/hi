@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn YouTube</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <h1>LearnTube</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#lessons">Lessons</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Main Learning Section -->
+    <section id="lessons">
+        <h2>Learn How to Use YouTube</h2>
+        <div class="lesson-card" id="lesson1">
+            <h3>Lesson 1: How to Create a YouTube Channel</h3>
+            <p>Step 1: Go to YouTube...</p>
+            <button onclick="startLesson()">Start Lesson</button>
+        </div>
+        <!-- More lessons go here -->
+    </section>
+    
+    <!-- Quiz Section -->
+    <section id="quiz" class="hidden">
+        <h3>Quiz: How to Upload a Video</h3>
+        <form id="quizForm">
+            <label>
+                How do you upload a video on YouTube?
+                <input type="radio" name="question" value="a">Option 1: Upload button
+                <input type="radio" name="question" value="b">Option 2: Use the app
+            </label>
+            <button type="button" onclick="checkAnswer()">Submit Answer</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 LearnTube. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+  /* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1c1c1c;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #ff0000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#lessons {
+    margin: 20px;
+}
+
+.lesson-card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.lesson-card button {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.lesson-card button:hover {
+    background-color: #cc0000;
+}
+
+/* Hidden class */
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1c1c1c;
+}
+
+
+
+  function startLesson() {
+    alert("Lesson started! Let's begin learning how to create a YouTube channel.");
+    document.getElementById('quiz').classList.remove('hidden');
+}
+
+function checkAnswer() {
+    let answer = document.querySelector('input[name="question"]:checked');
+    if (!answer) {
+        alert("Please select an answer.");
+        return;
+    }
+    
+    if (answer.value === 'a') {
+        alert("Correct! You learned how to upload a video.");
+    } else {
+        alert("Incorrect. Try again!");
+    }
+}
